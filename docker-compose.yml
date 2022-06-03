@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: "users"
+      MONGO_INITDB_ROOT_USERNAME: "user"
+      MONGO_INITDB_ROOT_PASSWORD: "password"
+    volumes:
+      - mongodb_demo_api:/data/db
+    networks:
+      - demo-api-network
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: "user"
+      ME_CONFIG_MONGODB_ADMINPASSWORD: "password"
+      ME_CONFIG_MONGODB_SERVER: "mongodb"
+    networks:
+      - demo-api-network
+
+  mysql:
+    image: mysql:8.0.21
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root123"
+      MYSQL_DATABASE: "beer"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test123"
+    volumes:
+      - mysql_demo_api:/var/lib/mysql
+    networks:
+      - demo-api-network
+
+  adminer:
+    image: adminer
+    ports:
+      - "9090:8080"
+    networks:
+      - demo-api-network
+
+  demo-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: demo-api
+    ports:
+      - "8080:8080"
+    environment:
+      MYSQL_USERNAME: $demo-api-username-db
+      MYSQL_PASSWORD: $demo-api-password-db
+    networks:
+      - demo-api-network
+
+networks:
+  demo-api-network:
+
+volumes:
+  mysql_demo_api:
+    external: true
+  mongodb_demo_api:
