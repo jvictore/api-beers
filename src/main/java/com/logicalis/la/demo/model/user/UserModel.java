@@ -1,22 +1,33 @@
 package com.logicalis.la.demo.model.user;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 
-import javax.persistence.UniqueConstraint;
+import javax.persistence.Entity;
 
 @Data
-@Document
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity(name="user")
 public class UserModel {
+    @Id
+    private Long id;
     @Indexed(unique=true)
-    private String username;
+    private String login;
     private String password;
-    private String email;
 
-    public UserModel(String username, String password) {
-        this.username = username;
+    public UserModel(String login, String password) {
+        this.login = login;
         this.password = password;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+    @javax.persistence.Id
+    public Long getId() {
+        return id;
+    }
 }
