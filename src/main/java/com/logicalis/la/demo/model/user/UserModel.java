@@ -10,12 +10,11 @@ import javax.persistence.UniqueConstraint;
 @Document
 public class UserModel {
     @Indexed(unique=true)
-    private String username;
+    private String login;
     private String password;
-    private String email;
 
-    public UserModel(String username, String password) {
-        this.username = username;
+    public UserModel(String login, String password) {
+        this.login = login;
         this.password = password;
     }
 

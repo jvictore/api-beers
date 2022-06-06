@@ -3,7 +3,7 @@ package com.logicalis.la.demo.service;
 import com.logicalis.la.demo.model.user.UserModel;
 import com.logicalis.la.demo.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,9 +17,9 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public UserModel getUserByUsername(UserModel body){
-        String username = body.getUsername();
-        return userRepository.findByUsername(username);
+    public UserModel getUserByLogin(UserModel body){
+        String login = body.getLogin();
+        return userRepository.findByLogin(login);
     }
 
     public UserModel addUser(UserModel body){
@@ -27,11 +27,8 @@ public class UserService {
     }
 
     public UserModel removeUser(UserModel body){
-        String username = body.getUsername();
-        return userRepository.deleteByUsername(username);
+        String username = body.getLogin();
+        return userRepository.deleteByLogin(username);
     }
 
-    public UserModel getByEmail(String email) {
-        return userRepository.getByEmail(email);
-    }
 }

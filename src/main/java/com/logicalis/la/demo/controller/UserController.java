@@ -22,9 +22,9 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/username")
-    public ResponseEntity<UserModel> getUserByUsername(@RequestBody UserModel body){
-        UserModel founded = userService.getUserByUsername(body);
+    @GetMapping("/one")
+    public ResponseEntity<UserModel> getUserByLogin(@RequestBody UserModel body){
+        UserModel founded = userService.getUserByLogin(body);
         return ResponseEntity.status(HttpStatus.OK).body(founded);
     }
 
