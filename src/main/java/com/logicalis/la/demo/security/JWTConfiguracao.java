@@ -33,6 +33,7 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable().cors().and().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/user/add").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JWTAutenticarFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class)

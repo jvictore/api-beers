@@ -41,9 +41,6 @@ public class UserController {
     @GetMapping("/validarSenha")
     public ResponseEntity<Boolean> validarSenha(@RequestParam String login,
                                                 @RequestParam String password) {
-
-        System.out.println("JOAO VICTOR");
-
         Optional<UserModel> optUsuario = userService.findByLogin(login);
         if (!optUsuario.isPresent()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
