@@ -52,18 +52,18 @@ class BeerControllerTest {
 //                .andExpect(jsonPath("$.size()", is(this.beerList.size())));
 //    }
 
-    @Test
-    void getBeerById() throws Exception {
-        final int beerId = 1;
-        final BeerModel beer = new BeerModel("skol", "IPA");
-
-        given(beerService.getBeerById(beerId)).willReturn(Optional.of(beer));
-
-        this.mockMvc.perform(get("/beer/{id}", beerId))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", is(beer.getName())))
-                .andExpect(jsonPath("$.type", is(beer.getType())));
-    }
+//    @Test
+//    void getBeerById() throws Exception {
+//        final int beerId = 1;
+//        final BeerModel beer = new BeerModel("skol", "IPA");
+//
+//        given(beerService.getBeerById(beerId)).willReturn(Optional.of(beer));
+//
+//        this.mockMvc.perform(get("/beer/{id}", beerId))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.name", is(beer.getName())))
+//                .andExpect(jsonPath("$.type", is(beer.getType())));
+//    }
 
 //
 //    @Test
@@ -80,14 +80,14 @@ class BeerControllerTest {
 //                .andExpect(jsonPath("$.type", is(beer.getType())));
 //    }
 
-    @Test
-    void removeBeer() throws Exception {
-        int id = 2;
-        given(beerService.removeBeer(2)).willReturn(Boolean.TRUE);
-
-        this.mockMvc.perform(delete("/beer/remove/{id}", id))
-                .andExpect(status().isOk());
-    }
+//    @Test
+//    void removeBeer() throws Exception {
+//        int id = 2;
+//        given(beerService.removeBeer(2)).willReturn(Boolean.TRUE);
+//
+//        this.mockMvc.perform(delete("/beer/remove/{id}", id))
+//                .andExpect(status().isOk());
+//    }
 
 
 //    @Test

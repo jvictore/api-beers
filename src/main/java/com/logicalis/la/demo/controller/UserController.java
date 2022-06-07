@@ -17,7 +17,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserController {
     private final UserService userService;
-//    private final PasswordEncoder encoder;
+    private final PasswordEncoder encoder;
 
     @GetMapping
     public ResponseEntity<List<UserModel>> getUser(){
@@ -33,28 +33,28 @@ public class UserController {
 
     @PostMapping("/add")
     public ResponseEntity<UserModel> addUser(@RequestBody UserModel body){
-//        body.setPassword(encoder.encode(body.getPassword()));
+        body.setPassword(encoder.encode(body.getPassword()));
         UserModel added = userService.addUser(body);
         return ResponseEntity.status(HttpStatus.OK).body(added);
     }
 
-//    @GetMapping("/validarSenha")
-//    public ResponseEntity<Boolean> validarSenha(@RequestParam String login,
-//                                                @RequestParam String password) {
-//
-//        System.out.println("JOAO VICTOR");
-//
-//        Optional<UserModel> optUsuario = userService.findByLogin(login);
-//        if (!optUsuario.isPresent()) {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
-//        }
-//
-//        UserModel usuario = optUsuario.get();
-//        boolean valid = encoder.matches(password, usuario.getPassword());
-//
-//        HttpStatus status = (valid) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED;
-//        return ResponseEntity.status(status).body(valid);
-//    }
+    @GetMapping("/validarSenha")
+    public ResponseEntity<Boolean> validarSenha(@RequestParam String login,
+                                                @RequestParam String password) {
+
+        System.out.println("JOAO VICTOR");
+
+        Optional<UserModel> optUsuario = userService.findByLogin(login);
+        if (!optUsuario.isPresent()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+        }
+
+        UserModel usuario = optUsuario.get();
+        boolean valid = encoder.matches(password, usuario.getPassword());
+
+        HttpStatus status = (valid) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED;
+        return ResponseEntity.status(status).body(valid);
+    }
 
     @DeleteMapping("/remove")
     public ResponseEntity<UserModel> removeUser(@RequestBody UserModel body){
