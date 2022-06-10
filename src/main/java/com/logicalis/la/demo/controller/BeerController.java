@@ -21,35 +21,35 @@ public class BeerController {
         return beerService.getBeer();
     }
 
-//    @GetMapping("/{id}")
-//    public @ResponseBody Optional<BeerModel> getBeerById(@PathVariable("id") int id){
-//        return beerService.getBeerById(id);
-//    }
-//
-//    @PostMapping("/add")
-//    public @ResponseBody ResponseEntity<BeerModel> addBeer(@RequestBody BeerModel body){
-//        if (beerService.addBeer(body)){
-//            return ResponseEntity.status(HttpStatus.CREATED).body(body);
-//        }
-//        return ResponseEntity.badRequest().build();
-//
-//    }
-//
-//    @DeleteMapping ("/remove/{id}")
-//    public @ResponseBody ResponseEntity<String> removeBeer(@PathVariable("id") int id){
-//        if (beerService.removeBeer(id)){
-//            return ResponseEntity.ok("Deleted.");
-//        } else {
-//            return ResponseEntity.notFound().build(); // não é ok
-//        }
-//    }
-//
-//    @PutMapping ("/update/{id}")
-//    public @ResponseBody ResponseEntity<BeerModel> updateBeer(@PathVariable("id") int id, @RequestBody BeerModel body){
-//       if (beerService.updateBeer(id, body)){
-//           return ResponseEntity.status(HttpStatus.OK).body(body);
-//       }
-//       return ResponseEntity.status(HttpStatus.ACCEPTED).body(body);
-//    }
+    @GetMapping("/{id}")
+    public @ResponseBody Optional<BeerModel> getBeerById(@PathVariable("id") int id){
+        return beerService.getBeerById(id);
+    }
+
+    @PostMapping("/add")
+    public @ResponseBody ResponseEntity<BeerModel> addBeer(@RequestBody BeerModel body){
+        if (beerService.addBeer(body)){
+            return ResponseEntity.status(HttpStatus.CREATED).body(body);
+        }
+        return ResponseEntity.badRequest().build();
+
+    }
+
+    @DeleteMapping ("/remove/{id}")
+    public @ResponseBody ResponseEntity<String> removeBeer(@PathVariable("id") int id){
+        if (beerService.removeBeer(id)){
+            return ResponseEntity.ok("Deleted.");
+        } else {
+            return ResponseEntity.notFound().build(); // não é ok
+        }
+    }
+
+    @PutMapping ("/update/{id}")
+    public @ResponseBody ResponseEntity<BeerModel> updateBeer(@PathVariable("id") int id, @RequestBody BeerModel body){
+       if (beerService.updateBeer(id, body)){
+           return ResponseEntity.status(HttpStatus.OK).body(body);
+       }
+       return ResponseEntity.status(HttpStatus.ACCEPTED).body(body);
+    }
 
 }

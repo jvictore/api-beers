@@ -31,7 +31,7 @@ public class BeerService {
         return true;
     }
 
-    public boolean removeBeer(int id){
+    public Boolean removeBeer(int id){
         return beerRepository.deleteById(id);
     }
 

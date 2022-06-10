@@ -5,16 +5,14 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Entity;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Entity(name="user")
+@Document(collection = "user")
 public class UserModel {
-    @Id
-    private int _id;
     @Indexed(unique=true)
     private String login;
     private String password;
@@ -24,11 +22,4 @@ public class UserModel {
         this.password = password;
     }
 
-    public void setId(int id) {
-        this._id = id;
-    }
-    @javax.persistence.Id
-    public int getId() {
-        return _id;
-    }
 }
