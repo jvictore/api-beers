@@ -61,7 +61,7 @@
 
 Before starting you need to have installed the following tools:<br>
 - [Git](https://git-scm.com) (Optional, you may want to manually download the project)
-- [Java 8](https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html)
+- [Java 8](https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html) ( :warning: Be sure you are using the correct version :warning: )
 - [Docker](https://docs.docker.com/desktop/)
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Maven](https://maven.apache.org/download.cgi). 
