@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-mvn clean package install -DskipTests
+#mvn clean package install -DskipTests
+#mv target/*.jar build/.
+
 docker-compose down
 docker image rmi -f demo-api:latest
 docker build -t demo-api:latest .
