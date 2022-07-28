@@ -92,16 +92,17 @@ The API requests format can be viewed in postman after import the collection loc
 	
 - api-beers/add-ons/api-beers.postman_collection.json
 
+## Access-the-databases
+To facilitate the visualization of the databases mentinoned above, we can access:
+- Mongo-Express	: http://localhost:8081/
+- Adminer	: http://localhost:9090/
+	
+	
 ## How-to-terminate
 ```bash
 # Once you have use the application you have to terminate it
 # Use the Docker Compose to do it
 $ docker-compose down
 ```
-	
-## Access-the-databases
-To facilitate the visualization of the databases mentinoned above, we can access:
-- Mongo-Express	: http://localhost:8081/
-- Adminer	: http://localhost:9090/
 	
 <div>
