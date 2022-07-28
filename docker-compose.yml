@@ -40,7 +40,7 @@ services:
       MYSQL_USER: "test"
       MYSQL_PASSWORD: "test123"
     volumes:
-      - mysql_demo_api:/var/lib/mysql
+      - mysql_files:/var/lib/mysql
     networks:
       - demo-api-network
 
@@ -68,6 +68,5 @@ networks:
   demo-api-network:
 
 volumes:
-  mysql_demo_api:
-    external: true
+  mysql_files:
   mongodb_demo_api:
