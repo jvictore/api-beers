@@ -26,7 +26,8 @@
  <a href="#features">Features</a> • 
  <a href="#pre-requisites">Pre-Requisites</a> • 
  <a href="#how-to-run">How to run</a> • 
- <a href="#how-to-terminate">How to terminate</a> • 
+ <a href="#how-to-terminate">How to terminate</a> •
+ <a href="#access-the-databases">Access the Databases</a> •
 
  <h4> 
 	🚧  Project in development...  🚧
@@ -98,7 +99,7 @@ The API requests format can be viewed in postman after import the collection loc
 $ docker-compose down
 ```
 	
-## Access the databases
+## Access-the-databases
 To facilitate the visualization of the databases mentinoned above, we can access:
 - Mongo-Express	: http://localhost:8081/
 - Adminer	: http://localhost:9090/
