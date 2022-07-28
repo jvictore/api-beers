@@ -55,6 +55,7 @@
 - [x] Add new user.
 - [x] Remove user.
 
+# IGNORE ALL THE BELOW INFORMATION, ALL OF IT IS ABOUT MY ANOTHER PROJECT THAT I'VE COPIED THE README
 ## Pre-requisites:
 
 Before starting you need to have installed the following tools:
