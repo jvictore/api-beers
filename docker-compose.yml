@@ -5,7 +5,7 @@ services:
     image: mongo:latest
     container_name: mongodb
     ports:
-      - "27017:27017"
+      - "27018:27017"
     environment:
       MONGO_INITDB_DATABASE: "users"
       MONGO_INITDB_ROOT_USERNAME: "user"
@@ -32,8 +32,8 @@ services:
     image: mysql:8.0.21
     container_name: mysql
     ports:
-      - "3306:3306"
-      - "33060:33060"
+      - "3307:3306"
+      - "33061:33060"
     environment:
       MYSQL_ROOT_PASSWORD: "root123"
       MYSQL_DATABASE: "beer"
@@ -57,7 +57,7 @@ services:
       dockerfile: Dockerfile
     image: demo-api
     ports:
-      - "8080:8080"
+      - "5000:8080"
     environment:
       MYSQL_USERNAME: $demo-api-username-db
       MYSQL_PASSWORD: $demo-api-password-db
