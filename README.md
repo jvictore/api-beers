@@ -23,6 +23,7 @@
 
 <div align="left">
  <a href="#objective">Objective</a> •
+ <a href="#description">Description</a> •
  <a href="#features">Features</a> • 
  <a href="#pre-requisites">Pre-Requisites</a> • 
  <a href="#how-to-run">How to run</a> • 
@@ -36,15 +37,33 @@
 ## Objective:
 <h4> 
 	The objective of this project is to develop a modern API based on microservices. The project is an API which you can interact to store, list, update and remove the beers you have already been tried.
-<br><br>
-	
-  To authenticate the API we'll use JWT Auth, we'll get the token via the login route. The users information are stored in a MySQL Docker Container, and the beer information in a different MongoDB Docker Container. To interact with the databases we'll have another two containers: Mongo-Express and Adminer.
+<br>
 </h4>
 
-## Features:
+## Description:
+
+We have 6 Docker containers in this project, they are:
+- MySQL
+- MongoDB
+- MongoExpress
+- Adminer
+- MvnBuilder
+- Api
+
+To authenticate the API we'll use JWT Auth, we'll get the token via the login route. 
+The users information are stored in a MySQL Docker Container, and the beer information in a different MongoDB Docker Container. 
+To interact with the databases we'll have another two containers: Adminer and Mongo-Express.
+
+There is a MvnBuilder container that uses a dependency cache so that the application does not take long to start. 
+After that, our built application is sent to the main container that runs the API on port 5000.
+Because of this way of building, your local Java version isn't relevant for this project, you may not even have Java installed.
+
+
+## Features:.
 ### Tools:
 - [x] Login to get the Token.
 - [x] Validate login/password.
+- [ ] Add Kubernetes to the project.
 ### Beers:
 - [x] Get all beers.
 - [x] Get one specific beer by id.
@@ -61,10 +80,8 @@
 
 Before starting you need to have installed the following tools:<br>
 - [Git](https://git-scm.com) (Optional, you may want to manually download the project)
-- [Java 8](https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html) ( :warning: Be sure you are using the correct version :warning: )
 - [Docker](https://docs.docker.com/desktop/)
 - [Docker Compose](https://docs.docker.com/compose/)
-- [Maven](https://maven.apache.org/download.cgi). 
 	
 It is algo useful to have an API Tool like [Postman](https://www.postman.com/downloads/) to interact with the API.
 
@@ -77,9 +94,10 @@ $ git clone https://github.com/jvictore/api-beers.git
 # Enter the cloned project folder 
 $ cd api-beers
 
+# That's the script you run to initialize everything, is just that simple.
 $ bash run_docker.sh
 ```
-The Spring REST API will initialize on port 8080. Communicate with the application by <http://localhost:8080/>
+The Spring REST API will initialize on port 5000. Communicate with the application by <http://localhost:5000/>
 
 You'll need the auth user/password to get a JWT Token, so let's add a new user sending a POST to the route '/user/add' with the following body:
 ```json
@@ -87,7 +105,8 @@ You'll need the auth user/password to get a JWT Token, so let's add a new user s
     "login": "SOMELOGIN",
     "password": "SOMEPASSWORD"
 }
-```	
+```
+
 The API requests format can be viewed in postman after import the collection located in: 
 	
 - api-beers/add-ons/api-beers.postman_collection.json
