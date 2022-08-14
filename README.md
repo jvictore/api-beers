@@ -51,7 +51,7 @@ We have 6 Docker containers in this project, they are:
 - Api
 
 To authenticate the API we'll use JWT Auth, we'll get the token via the login route. 
-The users information are stored in a MySQL Docker Container, and the beer information in a different MongoDB Docker Container. 
+The users information are stored in a MySQL Docker container, and the beer information in a different MongoDB Docker container. 
 To interact with the databases we'll have another two containers: Adminer and Mongo-Express.
 
 There is a MvnBuilder container that uses a dependency cache so that the application does not take long to start. 
