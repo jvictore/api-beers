@@ -83,7 +83,7 @@ Before starting you need to have installed the following tools:<br>
 - [Docker](https://docs.docker.com/desktop/)
 - [Docker Compose](https://docs.docker.com/compose/)
 	
-It is algo useful to have an API Tool like [Postman](https://www.postman.com/downloads/) to interact with the API.
+It is also useful to have an API Tool like [Postman](https://www.postman.com/downloads/) to interact with the API.
 
 ## How-to-run
 
@@ -99,7 +99,14 @@ $ bash run_docker.sh
 ```
 The Spring REST API will initialize on port 5000. Communicate with the application by <http://localhost:5000/>
 
-You'll need the auth user/password to get a JWT Token, so let's add a new user sending a POST to the route '/user/add' with the following body:
+The API requests format can be viewed in postman after import the collection located in: 
+	
+- api-beers/add-ons/api-beers.postman_collection.json
+
+If you choose to use postman, you just have to add a new user and login using that new username/password, the login route will generate a token to authenticate (after successfully logging in, postman will automatically inherit the token to all the routes).
+
+
+If you choose another method to interact with the API, you'll need the auth user/password to get a JWT Token, so let's add a new user sending a POST to the route '/user/add' with the following body:
 ```json
 {
     "login": "SOMELOGIN",
@@ -107,9 +114,7 @@ You'll need the auth user/password to get a JWT Token, so let's add a new user s
 }
 ```
 
-The API requests format can be viewed in postman after import the collection located in: 
-	
-- api-beers/add-ons/api-beers.postman_collection.json
+Now you have to send a POST to the route '/login' with the same body of the '/user/add' route explained above. This request will return a token to authenticate, this token is of the type 'Bearer token', and will be used in all routes.
 
 ## Access-the-databases
 To facilitate the visualization of the databases mentinoned above, we can access:
