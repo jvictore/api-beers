@@ -103,10 +103,10 @@ The API requests format can be viewed in postman after import the collection loc
 	
 - api-beers/add-ons/api-beers.postman_collection.json
 
-If you choose to use postman, you just have to add a new user and login using that new username/password, the login route will generate a token to authenticate (after successfully logging in, postman will automatically inherit the token to all the routes).
+<b>If you choose to use postman</b>, you just have to add a new user and login using that new username/password, the login route will generate a token to authenticate (after successfully logging in, postman will automatically inherit the token to all the routes).
 
 
-If you choose another method to interact with the API, you'll need the auth user/password to get a JWT Token, so let's add a new user sending a POST to the route '/user/add' with the following body:
+<b>If you choose another method to interact with the API</b>, you'll need the auth user/password to get a JWT Token, so let's add a new user sending a POST to the route '/user/add' with the following body:
 ```json
 {
     "login": "SOMELOGIN",
